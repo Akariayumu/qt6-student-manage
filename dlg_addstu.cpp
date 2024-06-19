@@ -15,10 +15,16 @@ Dlg_addstu::~Dlg_addstu()
     delete ui;
 }
 
-void Dlg_addstu::setType(bool isAdd,int id)
+void Dlg_addstu::setType(bool isAdd,stuinfo info)
 {
     m_isAdd = isAdd;
-        m_id = id;
+    m_info = info;
+    ui->lb_name->setText(info.name);
+    ui->lb_number->setText(QString::number(info.number));
+    ui->lb_acd->setText(info.acd);
+    ui->lb_class->setText(info.cla);
+    ui->lb_math->setText(QString::number(info.math));
+    ui->lb_program->setText(QString::number(info.program));
 }
 
 
@@ -40,10 +46,10 @@ void Dlg_addstu::on_btn_save_clicked()
 
     }
     else{
-        info.id = m_id;
-        ptr->updatestu(info);
+        //info.id = m_id;
+        ptr->updatestu(m_info);
     }
-    ptr->addstu(info);
+    //ptr->addstu(info);
     QMessageBox::information(nullptr,"信息","存储成功");
     this->hide();
 }

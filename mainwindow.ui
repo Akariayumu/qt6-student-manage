@@ -137,7 +137,7 @@
        <string>添加</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="btn_update">
       <property name="geometry">
        <rect>
         <x>530</x>
@@ -150,7 +150,7 @@
        <string>修改</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="btn_del">
       <property name="geometry">
        <rect>
         <x>600</x>

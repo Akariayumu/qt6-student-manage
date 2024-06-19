@@ -27,6 +27,10 @@ private slots:
 
     void on_btn_cleanup_clicked();
 
+    void on_btn_del_clicked();
+
+    void on_btn_update_clicked();
+
 private:
     void updateTable();
 private:
