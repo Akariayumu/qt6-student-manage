@@ -30,6 +30,8 @@ stusql::stusql(QObject *parent)
     // INTO student VALUES (NULL,3230630000,'张三','男',18,'计算机科学与网络工程学院','软件233')");
 
 }
+
+
 void stusql::initdb(){
     if (QSqlDatabase::drivers().isEmpty()){
         QMessageBox::information(NULL, tr("No database drivers found"),
@@ -98,8 +100,8 @@ bool stusql::delstu(int id)
 void stusql::clean_stu()
 {
     QSqlQuery sql("", m_db);
-
     qDebug()<<sql.exec(QString("delete from student;"));
+    sql.exec("delete from sqlite_sequence  where name = 'student';");
 }
 
 void stusql::updatestu(stuinfo info)

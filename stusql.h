@@ -33,8 +33,9 @@ public:
     }
     explicit stusql(QObject *parent = nullptr);
 
-
+    //初始化SQLite数据库
     void initdb();
+
     //计算所有学生数量
     quint32 get_StuNum();
 
@@ -52,17 +53,22 @@ public:
 
     //修改学生信息
     void updatestu(stuinfo info);
+
     //查询用户
     QList<userinfo> get_UsrNum();
-    //
-    //
+
+    //检测用户是否存在
     bool isExit(QString strUser);
-    //
+
+    //更改权限
     void changeaut(QString str);
-    //
+
+    //注册用户
     void adduser();
-    //
+
+    //删除用户
     void deluser(QString username);
+
 signals:
 private:
     QSqlDatabase m_db;

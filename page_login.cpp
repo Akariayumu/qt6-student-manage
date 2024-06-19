@@ -22,5 +22,6 @@ void Page_Login::on_btn_exit_clicked()
 void Page_Login::on_btn_login_clicked()
 {
     emit sendLoginsuccess();
+    this->close();
 }
 
