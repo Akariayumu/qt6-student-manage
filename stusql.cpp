@@ -82,6 +82,18 @@ QList<stuinfo> stusql::getPageStu(quint32 page, quint32 page_num)
     return l;
 }
 
+quint32 stusql::get_uid(quint32 number)
+{
+    quint32 id;
+    QSqlQuery sql("", m_db);
+    sql.exec(QString("select * from student where number=%1;").arg(number));
+    while(sql.next())
+    {
+        quint32 id = sql.value(0).toUInt();
+        return id;
+    }
+}
+
 bool stusql::addstu(stuinfo info)
 {   QSqlQuery sql("", m_db);
     QString strsql = QString ("insert into student values(null,%1,'%2','%3','%4',%5,%6);").
@@ -90,11 +102,12 @@ bool stusql::addstu(stuinfo info)
 
 }
 
-bool stusql::delstu(int id)
+bool stusql::delstu(int number)
 {
     QSqlQuery sql("", m_db);
-
-    return sql.exec(QString("delete from student where id = %1;").arg(id));
+    quint32 id = get_uid(number);
+    qDebug()<<sql.exec(QString("delete from student where id = %1;").arg(id));
+    return 1;
 }
 
 void stusql::clean_stu()
@@ -105,9 +118,9 @@ void stusql::clean_stu()
 }
 
 void stusql::updatestu(stuinfo info)
-{
+{   info.id = stusql::get_uid(info.number);
     QSqlQuery sql("", m_db);
-    QString strsql = QString ("update student set number = %1,name = '%2',acd = '%3',class = '%4', math = '%5', program = '%6'where id = %7").
+    QString strsql = QString ("update student set number =%1,name ='%2',acd ='%3',class ='%4', math =%5,program=%6 where id = %7;").
                      arg(info.number).arg(info.name).arg(info.acd).arg(info.cla).arg(info.math).arg(info.program).arg(info.id);
     qDebug()<<sql.exec(strsql);
     QSqlError e =sql.lastError();

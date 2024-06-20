@@ -45,6 +45,7 @@ public:
     QCheckBox *checkBox;
     QLabel *label_stunum;
     QPushButton *btn_cleanup;
+    QPushButton *reflash;
     QLabel *label_2;
     QPushButton *pushButton;
     QTreeWidget *treeWidget;
@@ -118,6 +119,9 @@ public:
         btn_cleanup = new QPushButton(page_2);
         btn_cleanup->setObjectName("btn_cleanup");
         btn_cleanup->setGeometry(QRect(620, 450, 71, 31));
+        reflash = new QPushButton(page_2);
+        reflash->setObjectName("reflash");
+        reflash->setGeometry(QRect(560, 450, 51, 31));
         stackedWidget->addWidget(page_2);
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
@@ -176,6 +180,7 @@ public:
         checkBox->setText(QCoreApplication::translate("MainWindow", "\345\205\250\351\200\211", nullptr));
         label_stunum->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">\344\272\272\346\225\260</span></p></body></html>", nullptr));
         btn_cleanup->setText(QCoreApplication::translate("MainWindow", "\346\270\205\347\251\272", nullptr));
+        reflash->setText(QCoreApplication::translate("MainWindow", "\345\210\267\346\226\260", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "adimin", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "\346\263\250\351\224\200", nullptr));
         QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();

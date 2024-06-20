@@ -4,8 +4,10 @@
 #include <QSqlDatabase>
 #include <QObject>
 //定义学生信息
-struct stuinfo
+class stuinfo
 {
+public:
+    //void get_id();
     int id;
     quint32 number;
     QString name;
@@ -41,6 +43,9 @@ public:
 
     //计算单页学生数
     QList<stuinfo> getPageStu(quint32 page,quint32 page_num);
+
+    //通过学号得到唯一id
+    quint32 get_uid(quint32 number);
 
     //增加学生
     bool addstu(stuinfo);

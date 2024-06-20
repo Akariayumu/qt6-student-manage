@@ -16,9 +16,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    int get_id();
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
 private slots:
     void on_pushButton_6_clicked();
 
@@ -31,12 +31,16 @@ private slots:
 
     void on_btn_update_clicked();
 
-private:
     void updateTable();
+    void on_reflash_clicked();
+
+private:
 private:
     Ui::MainWindow *ui;
     Page_Login m_dlgLogin;
     stusql *m_ptrstusql;
     Dlg_addstu m_dlgaddstu;
 };
+
+
 #endif // MAINWINDOW_H

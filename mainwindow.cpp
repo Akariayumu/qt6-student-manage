@@ -22,6 +22,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+int MainWindow::get_id()
+{   int i = ui->tableWidget->currentRow();
+    return ui->tableWidget->item(i,0)->text().toUInt();
+}
+
 void MainWindow::on_pushButton_6_clicked()
 {   ui->tableWidget->verticalHeader()->setHidden(true);
     //制作100条数据
@@ -42,7 +47,7 @@ void MainWindow::on_pushButton_6_clicked()
 
 void MainWindow::updateTable(){
     ui->tableWidget->clear();
-    ui->tableWidget->setColumnCount(8);
+    ui->tableWidget->setColumnCount(7);
     QStringList l;
     l<<"序号"<<"学号"<<"姓名"<<"学院"<<"班级"<<"数学"<<"物理";
 
@@ -58,8 +63,8 @@ void MainWindow::updateTable(){
     ui->tableWidget->setRowCount(ssnum);
     for (int i =0;i<lstudent.size();i++) {
 
-        //ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i)));
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(lstudent[i].id)));
+        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
+        //ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(lstudent[i].id)));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(lstudent[i].number)));
         ui->tableWidget->setItem(i,2,new QTableWidgetItem(lstudent[i].name));
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(lstudent[i].acd));
@@ -85,16 +90,18 @@ void MainWindow::on_btn_del_clicked()
 {
     int i = ui->tableWidget->currentRow();
     if (i>=0){
-        int id = ui->tableWidget->item(i,1)->text().toUInt();
-        m_ptrstusql->delstu(id);
+        quint32 number = (ui->tableWidget->item(i,1)->text().toUInt());
+        //quint32 id = (m_ptrstusql->get_uid(number));
+        qDebug()<<m_ptrstusql->delstu((number));
         updateTable();
         QMessageBox::information(nullptr,"信息","删除成功");
     }
+    updateTable();
 
 }
 
 void MainWindow::on_btn_addstu_clicked()
-{   m_dlgaddstu.setType(false);
+{   m_dlgaddstu.setType(true);
     m_dlgaddstu.exec();
     updateTable();
 }
@@ -103,8 +110,10 @@ void MainWindow::on_btn_update_clicked()
 {   stuinfo info;
     int i = ui->tableWidget->currentRow();
     if (i>=0){
-        //info.id = ui->tableWidget->item(i,1)->text().toUInt();
-        info.number = ui->tableWidget->item(i,1)->text().toUInt();
+        QString str_id = ui->tableWidget->item(i,0)->text();
+        info.id = str_id.toInt();
+        QString str_num = ui->tableWidget->item(i,1)->text();
+        info.number = str_num.toInt();
         info.name = ui->tableWidget->item(i,2)->text();
         info.acd = ui->tableWidget->item(i,3)->text();
         info.cla = ui->tableWidget->item(i,4)->text();
@@ -116,3 +125,13 @@ void MainWindow::on_btn_update_clicked()
     }
     updateTable();
 }
+
+
+
+
+
+void MainWindow::on_reflash_clicked()
+{
+    updateTable();
+}
+
