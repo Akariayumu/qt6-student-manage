@@ -42,10 +42,10 @@ public:
     quint32 get_StuNum();
 
     //计算单页学生数
-    QList<stuinfo> getPageStu(quint32 page,quint32 page_num);
+    QList<stuinfo> getPageStu(quint32 page,quint32 page_num,QString tabelname);
 
     //通过学号得到唯一id
-    quint32 get_uid(quint32 number);
+    quint32 get_uid(quint32  number);
 
     //增加学生
     bool addstu(stuinfo);
@@ -59,20 +59,11 @@ public:
     //修改学生信息
     void updatestu(stuinfo info);
 
-    //查询用户
-    QList<userinfo> get_UsrNum();
+    //数学成绩排序
+    void math_sort();
 
-    //检测用户是否存在
-    bool isExit(QString strUser);
-
-    //更改权限
-    void changeaut(QString str);
-
-    //注册用户
-    void adduser();
-
-    //删除用户
-    void deluser(QString username);
+    //编程成绩排序
+    void program_sort();
 
 signals:
 private:

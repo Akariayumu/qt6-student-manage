@@ -5,7 +5,7 @@
 #include <QtDebug>
 #include <QSqlError>
 #include <QCoreApplication>
-
+#include <QtTest/QTest>
 stusql  * stusql::ptrstusql = nullptr;
 
 stusql::stusql(QObject *parent)
@@ -13,19 +13,19 @@ stusql::stusql(QObject *parent)
 {
     //QSqlQuery q("", db);
     initdb();
-    stuinfo s;
-    s.name="李天所";
-    s.number=114514;
-     for(int i =0;i<10;i++){
-         //addstu(s);
-     }
-    get_StuNum();
-    getPageStu(2,3);
-    delstu(70);
-    stuinfo t;
-    t.id=137;
-    t.name="淳平";
-    updatestu(t);
+    // stuinfo s;
+    // s.name="李天所";
+    // s.number=114514;
+    //  for(int i =0;i<10;i++){
+    //      //addstu(s);
+    //  }
+    // get_StuNum();
+    // getPageStu(2,3);
+    // delstu(70);
+    // stuinfo t;
+    // t.id=137;
+    // t.name="淳平";
+    // updatestu(t);
     //clean_stu();
     // INTO student VALUES (NULL,3230630000,'张三','男',18,'计算机科学与网络工程学院','软件233')");
 
@@ -40,11 +40,11 @@ void stusql::initdb(){
                                     "Qt SQL plugins."));
         qDebug()<<"No database drivers found";}
     m_db = QSqlDatabase::addDatabase("QSQLITE");
-#if 0
-    auto str1 = QCoreApplication::applicationDirPath()+"data.db";
+#if 1
+    auto str1 = QCoreApplication::applicationDirPath()+"/data.db";
     qDebug()<<str1;
 #endif
-    m_db.setDatabaseName("F://acd/C/c/qt/data.db");
+    m_db.setDatabaseName(str1);
     if (!m_db.open())
         qDebug()<<"database not open";
 
@@ -61,10 +61,10 @@ quint32 stusql::get_StuNum()
     return stu_num;
 }
 
-QList<stuinfo> stusql::getPageStu(quint32 page, quint32 page_num)
+QList<stuinfo> stusql::getPageStu(quint32 page, quint32 page_num,QString tabelname)
 {   QList<stuinfo> l;
     QSqlQuery sql("", m_db);
-    QString strsql = QString("select * from student order by id limit %1 offset %2;").
+    QString strsql = QString("select * from %1 order by id limit %2 offset %3;").arg(tabelname).
                      arg(page_num).arg(page*page_num);
     qDebug()<<sql.exec(strsql);
 
@@ -82,7 +82,7 @@ QList<stuinfo> stusql::getPageStu(quint32 page, quint32 page_num)
     return l;
 }
 
-quint32 stusql::get_uid(quint32 number)
+quint32 stusql::get_uid(quint32  number)
 {
     quint32 id;
     QSqlQuery sql("", m_db);
@@ -125,4 +125,21 @@ void stusql::updatestu(stuinfo info)
     qDebug()<<sql.exec(strsql);
     QSqlError e =sql.lastError();
     qDebug()<<e.text();
+}
+
+void stusql::math_sort()
+{   QString dele = QString("DROP TABLE math_student;");
+    QSqlQuery sql("", m_db);
+    //sql.exec(dele);
+    QString sort_math = QString("DROP TABLE math_student;DROP TABLE temp_student;CREATE TABLE math_student AS SELECT number , name ,acd ,class ,math , program FROM student ORDER BY math DESC;CREATE TABLE temp_student (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,number INTEGER,name TEXT,acd TEXT,class TEXT,math INTEGER,program INTEGER);INSERT INTO temp_student (number, name, acd, class, math, program)SELECT number, name, acd, class, math, program FROM math_student;DROP TABLE math_student;ALTER TABLE temp_student RENAME TO math_student;");
+    qDebug()<<sql.exec(sort_math);
+}
+
+void stusql::program_sort()
+{
+    QString dele = QString("DROP TABLE program_student;DROP TABLE temp_student;");
+    QSqlQuery sql("", m_db);
+    //sql.exec(dele);
+    QString sort_pro = QString("DROP TABLE program_student;DROP TABLE temp_student;CREATE TABLE program_student AS SELECT number , name ,acd ,class ,math , program FROM student ORDER BY program DESC;CREATE TABLE temp_student (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,number INTEGER,name TEXT,acd TEXT,class TEXT,math INTEGER,program INTEGER);INSERT INTO temp_student (number, name, acd, class, math, program)SELECT number, name, acd, class, math, program FROM program_student;DROP TABLE program_student;ALTER TABLE temp_student RENAME TO program_student;");
+    qDebug()<<sql.exec(sort_pro);
 }

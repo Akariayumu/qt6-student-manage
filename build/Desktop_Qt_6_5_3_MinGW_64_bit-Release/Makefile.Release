@@ -931,7 +931,13 @@ release/dlg_addstu.o: ../../dlg_addstu.cpp ../../dlg_addstu.h \
 		F:/Qt/6.5.3/mingw_64/include/QtSql/qtsqlexports.h \
 		ui_dlg_addstu.h \
 		F:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
-		F:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h
+		F:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
+		../../mainwindow.h \
+		../../page_login.h \
+		F:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
+		F:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
+		F:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
+		F:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dlg_addstu.o ..\..\dlg_addstu.cpp
 
 release/main.o: ../../main.cpp ../../mainwindow.h \
@@ -1652,16 +1658,7 @@ release/stusql.o: ../../stusql.cpp ../../stusql.h \
 		F:/Qt/6.5.3/mingw_64/include/QtCore/qelapsedtimer.h \
 		F:/Qt/6.5.3/mingw_64/include/QtCore/qrunnable.h \
 		F:/Qt/6.5.3/mingw_64/include/QtCore/qexception.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qpromise.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/QDir \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qdir.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qfile.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qfiledevice.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qfileinfo.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qcalendar.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
-		F:/Qt/6.5.3/mingw_64/include/QtCore/QFile
+		F:/Qt/6.5.3/mingw_64/include/QtCore/qpromise.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\stusql.o ..\..\stusql.cpp
 
 release/moc_dlg_addstu.o: release/moc_dlg_addstu.cpp 

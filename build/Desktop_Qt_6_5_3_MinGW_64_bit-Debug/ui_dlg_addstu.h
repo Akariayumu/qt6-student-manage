@@ -10,9 +10,9 @@
 #define UI_DLG_ADDSTU_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -32,13 +32,13 @@ public:
     QPushButton *btn_save;
     QPushButton *btn_quit2;
     QWidget *widget;
-    QGraphicsView *graphicsView;
     QLineEdit *lb_name;
     QLineEdit *lb_acd;
     QLineEdit *lb_class;
     QLineEdit *lb_math;
     QLineEdit *lb_program;
     QLineEdit *lb_number;
+    QLabel *lb_png;
 
     void setupUi(QDialog *Dlg_addstu)
     {
@@ -47,6 +47,9 @@ public:
         Dlg_addstu->resize(500, 400);
         Dlg_addstu->setMinimumSize(QSize(500, 400));
         Dlg_addstu->setMaximumSize(QSize(500, 400));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Resource/icon.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        Dlg_addstu->setWindowIcon(icon);
         label = new QLabel(Dlg_addstu);
         label->setObjectName("label");
         label->setGeometry(QRect(20, 30, 41, 21));
@@ -74,9 +77,6 @@ public:
         widget = new QWidget(Dlg_addstu);
         widget->setObjectName("widget");
         widget->setGeometry(QRect(10, 20, 191, 361));
-        graphicsView = new QGraphicsView(Dlg_addstu);
-        graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(240, 20, 231, 311));
         lb_name = new QLineEdit(Dlg_addstu);
         lb_name->setObjectName("lb_name");
         lb_name->setGeometry(QRect(20, 100, 171, 25));
@@ -95,6 +95,10 @@ public:
         lb_number = new QLineEdit(Dlg_addstu);
         lb_number->setObjectName("lb_number");
         lb_number->setGeometry(QRect(20, 50, 171, 25));
+        lb_png = new QLabel(Dlg_addstu);
+        lb_png->setObjectName("lb_png");
+        lb_png->setGeometry(QRect(260, 30, 191, 291));
+        lb_png->setStyleSheet(QString::fromUtf8("border-image: url(:/Resource/slogon.jpg);"));
         QWidget::setTabOrder(lb_number, lb_name);
         QWidget::setTabOrder(lb_name, lb_acd);
         QWidget::setTabOrder(lb_acd, lb_class);
@@ -102,7 +106,6 @@ public:
         QWidget::setTabOrder(lb_math, lb_program);
         QWidget::setTabOrder(lb_program, btn_save);
         QWidget::setTabOrder(btn_save, btn_quit2);
-        QWidget::setTabOrder(btn_quit2, graphicsView);
 
         retranslateUi(Dlg_addstu);
 
@@ -111,7 +114,7 @@ public:
 
     void retranslateUi(QDialog *Dlg_addstu)
     {
-        Dlg_addstu->setWindowTitle(QCoreApplication::translate("Dlg_addstu", "\345\275\225\345\205\245\345\255\246\347\224\237\346\210\220\347\273\251", nullptr));
+        Dlg_addstu->setWindowTitle(QCoreApplication::translate("Dlg_addstu", "\345\255\246\347\224\237\344\277\241\346\201\257", nullptr));
         label->setText(QCoreApplication::translate("Dlg_addstu", "<html><head/><body><p><span style=\" font-size:10pt;\">\345\255\246\345\217\267</span></p></body></html>", nullptr));
         label2->setText(QCoreApplication::translate("Dlg_addstu", "<html><head/><body><p><span style=\" font-size:10pt;\">\345\247\223\345\220\215</span></p></body></html>", nullptr));
         label_3->setText(QCoreApplication::translate("Dlg_addstu", "<html><head/><body><p><span style=\" font-size:10pt;\">\345\255\246\351\231\242</span></p></body></html>", nullptr));
@@ -120,6 +123,7 @@ public:
         label_6->setText(QCoreApplication::translate("Dlg_addstu", "<html><head/><body><p><span style=\" font-size:10pt;\">\347\274\226\347\250\213</span></p></body></html>", nullptr));
         btn_save->setText(QCoreApplication::translate("Dlg_addstu", "\347\241\256\350\256\244", nullptr));
         btn_quit2->setText(QCoreApplication::translate("Dlg_addstu", "\345\217\226\346\266\210", nullptr));
+        lb_png->setText(QString());
     } // retranslateUi
 
 };

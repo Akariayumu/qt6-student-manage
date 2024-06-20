@@ -1,0 +1,10 @@
+debug/dlg_addstu.o
+debug/main.o
+debug/mainwindow.o
+debug/page_login.o
+debug/stusql.o
+debug/qrc_res.o
+debug/moc_dlg_addstu.o
+debug/moc_mainwindow.o
+debug/moc_page_login.o
+debug/moc_stusql.o

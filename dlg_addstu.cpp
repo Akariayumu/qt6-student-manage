@@ -3,7 +3,7 @@
 #include "stusql.h"
 #include <QMessageBox>
 #include <mainwindow.h>
-
+#include <QPixmap>
 Dlg_addstu::Dlg_addstu(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Dlg_addstu)

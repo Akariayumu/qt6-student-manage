@@ -11,8 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -22,7 +22,6 @@
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
-#include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -37,19 +36,16 @@ public:
     QWidget *page;
     QWidget *page_2;
     QTableWidget *tableWidget;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton_2;
+    QLineEdit *le_search;
+    QPushButton *btn_search;
     QPushButton *btn_addstu;
     QPushButton *btn_update;
     QPushButton *btn_del;
-    QCheckBox *checkBox;
     QLabel *label_stunum;
     QPushButton *btn_cleanup;
     QPushButton *reflash;
-    QLabel *label_2;
-    QPushButton *pushButton;
-    QTreeWidget *treeWidget;
-    QPushButton *pushButton_6;
+    QPushButton *btn_prosort;
+    QPushButton *btn_mathsort;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -57,20 +53,25 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(880, 600);
-        MainWindow->setMinimumSize(QSize(880, 600));
-        MainWindow->setMaximumSize(QSize(880, 600));
+        MainWindow->resize(780, 580);
+        MainWindow->setMinimumSize(QSize(780, 580));
+        MainWindow->setMaximumSize(QSize(780, 580));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Resource/icon.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
+        MainWindow->setStyleSheet(QString::fromUtf8(""));
         action = new QAction(MainWindow);
         action->setObjectName("action");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(320, 10, 241, 41));
+        label->setGeometry(QRect(250, 10, 241, 41));
         label->setAlignment(Qt::AlignCenter);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(150, 70, 711, 481));
+        stackedWidget->setGeometry(QRect(0, 50, 841, 511));
+        stackedWidget->setStyleSheet(QString::fromUtf8("background image(:/Resource/background.png)"));
         page = new QWidget();
         page->setObjectName("page");
         stackedWidget->addWidget(page);
@@ -94,53 +95,44 @@ public:
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(6, __qtablewidgetitem6);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(0, 40, 691, 401));
-        lineEdit = new QLineEdit(page_2);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(70, 10, 251, 25));
-        pushButton_2 = new QPushButton(page_2);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(330, 10, 61, 28));
+        tableWidget->setGeometry(QRect(19, 50, 721, 400));
+        tableWidget->setStyleSheet(QString::fromUtf8(""));
+        tableWidget->horizontalHeader()->setDefaultSectionSize(102);
+        le_search = new QLineEdit(page_2);
+        le_search->setObjectName("le_search");
+        le_search->setGeometry(QRect(490, 10, 171, 31));
+        btn_search = new QPushButton(page_2);
+        btn_search->setObjectName("btn_search");
+        btn_search->setGeometry(QRect(670, 10, 71, 31));
         btn_addstu = new QPushButton(page_2);
         btn_addstu->setObjectName("btn_addstu");
-        btn_addstu->setGeometry(QRect(460, 10, 61, 28));
+        btn_addstu->setGeometry(QRect(20, 10, 71, 31));
         btn_update = new QPushButton(page_2);
         btn_update->setObjectName("btn_update");
-        btn_update->setGeometry(QRect(530, 10, 61, 28));
+        btn_update->setGeometry(QRect(100, 10, 71, 31));
         btn_del = new QPushButton(page_2);
         btn_del->setObjectName("btn_del");
-        btn_del->setGeometry(QRect(600, 10, 61, 28));
-        checkBox = new QCheckBox(page_2);
-        checkBox->setObjectName("checkBox");
-        checkBox->setGeometry(QRect(10, 10, 71, 31));
+        btn_del->setGeometry(QRect(180, 10, 71, 31));
         label_stunum = new QLabel(page_2);
         label_stunum->setObjectName("label_stunum");
-        label_stunum->setGeometry(QRect(0, 450, 91, 31));
+        label_stunum->setGeometry(QRect(20, 450, 91, 31));
         btn_cleanup = new QPushButton(page_2);
         btn_cleanup->setObjectName("btn_cleanup");
-        btn_cleanup->setGeometry(QRect(620, 450, 71, 31));
+        btn_cleanup->setGeometry(QRect(670, 450, 71, 31));
         reflash = new QPushButton(page_2);
         reflash->setObjectName("reflash");
-        reflash->setGeometry(QRect(560, 450, 51, 31));
+        reflash->setGeometry(QRect(590, 450, 71, 31));
+        btn_prosort = new QPushButton(page_2);
+        btn_prosort->setObjectName("btn_prosort");
+        btn_prosort->setGeometry(QRect(440, 450, 71, 31));
+        btn_mathsort = new QPushButton(page_2);
+        btn_mathsort->setObjectName("btn_mathsort");
+        btn_mathsort->setGeometry(QRect(352, 450, 71, 31));
         stackedWidget->addWidget(page_2);
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(640, 20, 81, 31));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(740, 20, 93, 28));
-        treeWidget = new QTreeWidget(centralwidget);
-        new QTreeWidgetItem(treeWidget);
-        new QTreeWidgetItem(treeWidget);
-        treeWidget->setObjectName("treeWidget");
-        treeWidget->setGeometry(QRect(10, 70, 131, 481));
-        pushButton_6 = new QPushButton(centralwidget);
-        pushButton_6->setObjectName("pushButton_6");
-        pushButton_6->setGeometry(QRect(170, 20, 51, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 880, 25));
+        menubar->setGeometry(QRect(0, 0, 780, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -156,7 +148,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\345\255\246\347\224\237\346\210\220\347\273\251\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         action->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">\345\255\246\347\224\237\346\210\220\347\273\251\347\256\241\347\220\206\347\263\273\347\273\237</span></p></body></html>", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
@@ -173,28 +165,16 @@ public:
         ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "\346\225\260\345\255\246", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidget->horizontalHeaderItem(6);
         ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "\347\274\226\347\250\213", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "\346\220\234\347\264\242", nullptr));
+        le_search->setPlaceholderText(QCoreApplication::translate("MainWindow", "\350\257\267\350\276\223\345\205\245\345\255\246\347\224\237\345\247\223\345\220\215", nullptr));
+        btn_search->setText(QCoreApplication::translate("MainWindow", "\346\220\234\347\264\242", nullptr));
         btn_addstu->setText(QCoreApplication::translate("MainWindow", "\346\267\273\345\212\240", nullptr));
         btn_update->setText(QCoreApplication::translate("MainWindow", "\344\277\256\346\224\271", nullptr));
         btn_del->setText(QCoreApplication::translate("MainWindow", "\345\210\240\351\231\244", nullptr));
-        checkBox->setText(QCoreApplication::translate("MainWindow", "\345\205\250\351\200\211", nullptr));
         label_stunum->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">\344\272\272\346\225\260</span></p></body></html>", nullptr));
         btn_cleanup->setText(QCoreApplication::translate("MainWindow", "\346\270\205\347\251\272", nullptr));
         reflash->setText(QCoreApplication::translate("MainWindow", "\345\210\267\346\226\260", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "adimin", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "\346\263\250\351\224\200", nullptr));
-        QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
-        ___qtreewidgetitem->setText(0, QCoreApplication::translate("MainWindow", "\345\255\246\347\224\237\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
-
-        const bool __sortingEnabled = treeWidget->isSortingEnabled();
-        treeWidget->setSortingEnabled(false);
-        QTreeWidgetItem *___qtreewidgetitem1 = treeWidget->topLevelItem(0);
-        ___qtreewidgetitem1->setText(0, QCoreApplication::translate("MainWindow", "\345\255\246\347\224\237\347\256\241\347\220\206", nullptr));
-        QTreeWidgetItem *___qtreewidgetitem2 = treeWidget->topLevelItem(1);
-        ___qtreewidgetitem2->setText(0, QCoreApplication::translate("MainWindow", "\347\256\241\347\220\206\345\221\230\347\256\241\347\220\206", nullptr));
-        treeWidget->setSortingEnabled(__sortingEnabled);
-
-        pushButton_6->setText(QCoreApplication::translate("MainWindow", "SIM", nullptr));
+        btn_prosort->setText(QCoreApplication::translate("MainWindow", "\347\274\226\347\250\213\346\216\222\345\272\217", nullptr));
+        btn_mathsort->setText(QCoreApplication::translate("MainWindow", "\346\225\260\345\255\246\346\216\222\345\272\217", nullptr));
     } // retranslateUi
 
 };

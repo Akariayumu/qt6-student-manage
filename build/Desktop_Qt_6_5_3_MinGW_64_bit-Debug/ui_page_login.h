@@ -10,6 +10,7 @@
 #define UI_PAGE_LOGIN_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -37,6 +38,9 @@ public:
         Page_Login->resize(400, 240);
         Page_Login->setMinimumSize(QSize(400, 240));
         Page_Login->setMaximumSize(QSize(400, 240));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Resource/icon.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        Page_Login->setWindowIcon(icon);
         lineEdit = new QLineEdit(Page_Login);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(100, 100, 221, 25));

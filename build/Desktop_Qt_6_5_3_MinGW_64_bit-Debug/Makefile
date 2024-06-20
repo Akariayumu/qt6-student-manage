@@ -346,11 +346,12 @@ Makefile: ../../qt_test.pro F:/Qt/6.5.3/mingw_64/mkspecs/win32-g++/qmake.conf F:
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/resources_functions.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/resources.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/moc.prf \
+		F:/Qt/6.5.3/mingw_64/mkspecs/features/testlib_defines.prf \
+		F:/Qt/6.5.3/mingw_64/mkspecs/features/win32/console.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/win32/opengl.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/uic.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/qmake_use.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/file_copies.prf \
-		F:/Qt/6.5.3/mingw_64/mkspecs/features/win32/windows.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/testcase_targets.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/exceptions.prf \
 		F:/Qt/6.5.3/mingw_64/mkspecs/features/yacc.prf \
@@ -359,9 +360,11 @@ Makefile: ../../qt_test.pro F:/Qt/6.5.3/mingw_64/mkspecs/win32-g++/qmake.conf F:
 		F:/Qt/6.5.3/mingw_64/lib/Qt6Widgets.prl \
 		F:/Qt/6.5.3/mingw_64/lib/Qt6Gui.prl \
 		F:/Qt/6.5.3/mingw_64/lib/Qt6Sql.prl \
+		F:/Qt/6.5.3/mingw_64/lib/Qt6Test.prl \
 		F:/Qt/6.5.3/mingw_64/lib/Qt6Core.prl \
 		F:/Qt/6.5.3/mingw_64/lib/Qt6EntryPoint.prl \
-		F:/Qt/6.5.3/mingw_64/mkspecs/features/build_pass.prf
+		F:/Qt/6.5.3/mingw_64/mkspecs/features/build_pass.prf \
+		../../res.qrc
 	$(QMAKE) -o Makefile ..\..\qt_test.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 F:/Qt/6.5.3/mingw_64/mkspecs/features/spec_pre.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/device_config.prf:
@@ -639,11 +642,12 @@ F:/Qt/6.5.3/mingw_64/mkspecs/features/qt.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/resources_functions.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/resources.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/moc.prf:
+F:/Qt/6.5.3/mingw_64/mkspecs/features/testlib_defines.prf:
+F:/Qt/6.5.3/mingw_64/mkspecs/features/win32/console.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/win32/opengl.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/uic.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/qmake_use.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/file_copies.prf:
-F:/Qt/6.5.3/mingw_64/mkspecs/features/win32/windows.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/testcase_targets.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/exceptions.prf:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/yacc.prf:
@@ -652,9 +656,11 @@ F:/Qt/6.5.3/mingw_64/mkspecs/features/lex.prf:
 F:/Qt/6.5.3/mingw_64/lib/Qt6Widgets.prl:
 F:/Qt/6.5.3/mingw_64/lib/Qt6Gui.prl:
 F:/Qt/6.5.3/mingw_64/lib/Qt6Sql.prl:
+F:/Qt/6.5.3/mingw_64/lib/Qt6Test.prl:
 F:/Qt/6.5.3/mingw_64/lib/Qt6Core.prl:
 F:/Qt/6.5.3/mingw_64/lib/Qt6EntryPoint.prl:
 F:/Qt/6.5.3/mingw_64/mkspecs/features/build_pass.prf:
+../../res.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\..\qt_test.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

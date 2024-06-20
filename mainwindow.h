@@ -16,6 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    void updateTable();
     int get_id();
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -31,8 +32,15 @@ private slots:
 
     void on_btn_update_clicked();
 
-    void updateTable();
+
     void on_reflash_clicked();
+
+
+    void on_btn_search_clicked();
+
+    void on_btn_mathsort_clicked();
+
+    void on_btn_prosort_clicked();
 
 private:
 private:

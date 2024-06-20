@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>录入学生成绩</string>
+   <string>学生信息</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/Resource/icon.ico</normaloff>:/Resource/icon.ico</iconset>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -139,16 +143,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QGraphicsView" name="graphicsView">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>20</y>
-     <width>231</width>
-     <height>311</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lb_name">
    <property name="geometry">
     <rect>
@@ -209,6 +203,22 @@
     </rect>
    </property>
   </widget>
+  <widget class="QLabel" name="lb_png">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>30</y>
+     <width>191</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/Resource/slogon.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>lb_number</tabstop>
@@ -219,8 +229,9 @@
   <tabstop>lb_program</tabstop>
   <tabstop>btn_save</tabstop>
   <tabstop>btn_quit2</tabstop>
-  <tabstop>graphicsView</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,0 +1,10 @@
+release/dlg_addstu.o
+release/main.o
+release/mainwindow.o
+release/page_login.o
+release/stusql.o
+release/qrc_res.o
+release/moc_dlg_addstu.o
+release/moc_mainwindow.o
+release/moc_page_login.o
+release/moc_stusql.o
