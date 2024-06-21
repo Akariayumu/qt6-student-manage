@@ -131,8 +131,20 @@ void stusql::math_sort()
 {   QString dele = QString("DROP TABLE math_student;");
     QSqlQuery sql("", m_db);
     //sql.exec(dele);
-    QString sort_math = QString("DROP TABLE math_student;DROP TABLE temp_student;CREATE TABLE math_student AS SELECT number , name ,acd ,class ,math , program FROM student ORDER BY math DESC;CREATE TABLE temp_student (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,number INTEGER,name TEXT,acd TEXT,class TEXT,math INTEGER,program INTEGER);INSERT INTO temp_student (number, name, acd, class, math, program)SELECT number, name, acd, class, math, program FROM math_student;DROP TABLE math_student;ALTER TABLE temp_student RENAME TO math_student;");
+    QString sort_math = QString("DROP TABLE math_student;");
+    QString sort_math1 = QString("DROP TABLE temp_student;");
+    QString sort_math2 = QString("CREATE TABLE math_student AS SELECT number , name ,acd ,class ,math , program FROM student ORDER BY math DESC;");
+    QString sort_math3 = QString("CREATE TABLE temp_student (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,number INTEGER,name TEXT,acd TEXT,class TEXT,math INTEGER,program INTEGER);");
+    QString sort_math4 = QString("INSERT INTO temp_student (number, name, acd, class, math, program)SELECT number, name, acd, class, math, program FROM math_student;");
+    QString sort_math5 = QString("DROP TABLE math_student;");
+    QString sort_math6 = QString("ALTER TABLE temp_student RENAME TO math_student;");
     qDebug()<<sql.exec(sort_math);
+    qDebug()<<sql.exec(sort_math1);
+    qDebug()<<sql.exec(sort_math2);
+    qDebug()<<sql.exec(sort_math3);
+    qDebug()<<sql.exec(sort_math4);
+    qDebug()<<sql.exec(sort_math5);
+    qDebug()<<sql.exec(sort_math6);
 }
 
 void stusql::program_sort()
@@ -140,6 +152,18 @@ void stusql::program_sort()
     QString dele = QString("DROP TABLE program_student;DROP TABLE temp_student;");
     QSqlQuery sql("", m_db);
     //sql.exec(dele);
-    QString sort_pro = QString("DROP TABLE program_student;DROP TABLE temp_student;CREATE TABLE program_student AS SELECT number , name ,acd ,class ,math , program FROM student ORDER BY program DESC;CREATE TABLE temp_student (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,number INTEGER,name TEXT,acd TEXT,class TEXT,math INTEGER,program INTEGER);INSERT INTO temp_student (number, name, acd, class, math, program)SELECT number, name, acd, class, math, program FROM program_student;DROP TABLE program_student;ALTER TABLE temp_student RENAME TO program_student;");
+    QString sort_pro = QString("DROP TABLE program_student;");
+    QString sort_pro1 = QString("DROP TABLE temp_student;");
+    QString sort_pro2 = QString("CREATE TABLE program_student AS SELECT number , name ,acd ,class ,math , program FROM student ORDER BY program DESC;");
+    QString sort_pro3 = QString("CREATE TABLE temp_student (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,number INTEGER,name TEXT,acd TEXT,class TEXT,math INTEGER,program INTEGER);");
+    QString sort_pro4 = QString("INSERT INTO temp_student (number, name, acd, class, math, program)SELECT number, name, acd, class, math, program FROM program_student;");
+    QString sort_pro5 = QString("DROP TABLE program_student;");
+    QString sort_pro6 = QString("ALTER TABLE temp_student RENAME TO program_student;");
     qDebug()<<sql.exec(sort_pro);
+    qDebug()<<sql.exec(sort_pro1);
+    qDebug()<<sql.exec(sort_pro2);
+    qDebug()<<sql.exec(sort_pro3);
+    qDebug()<<sql.exec(sort_pro4);
+    qDebug()<<sql.exec(sort_pro5);
+    qDebug()<<sql.exec(sort_pro6);
 }

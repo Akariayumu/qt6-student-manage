@@ -95,7 +95,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(6, __qtablewidgetitem6);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(19, 50, 721, 400));
+        tableWidget->setGeometry(QRect(20, 50, 731, 400));
         tableWidget->setStyleSheet(QString::fromUtf8(""));
         tableWidget->horizontalHeader()->setDefaultSectionSize(102);
         le_search = new QLineEdit(page_2);
@@ -103,7 +103,7 @@ public:
         le_search->setGeometry(QRect(490, 10, 171, 31));
         btn_search = new QPushButton(page_2);
         btn_search->setObjectName("btn_search");
-        btn_search->setGeometry(QRect(670, 10, 71, 31));
+        btn_search->setGeometry(QRect(680, 10, 71, 31));
         btn_addstu = new QPushButton(page_2);
         btn_addstu->setObjectName("btn_addstu");
         btn_addstu->setGeometry(QRect(20, 10, 71, 31));
@@ -118,7 +118,7 @@ public:
         label_stunum->setGeometry(QRect(20, 450, 91, 31));
         btn_cleanup = new QPushButton(page_2);
         btn_cleanup->setObjectName("btn_cleanup");
-        btn_cleanup->setGeometry(QRect(670, 450, 71, 31));
+        btn_cleanup->setGeometry(QRect(680, 450, 71, 31));
         reflash = new QPushButton(page_2);
         reflash->setObjectName("reflash");
         reflash->setGeometry(QRect(590, 450, 71, 31));
